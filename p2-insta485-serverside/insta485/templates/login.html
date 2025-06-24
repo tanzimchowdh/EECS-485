@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>insta485</title>
+</head>
+    <body>
+        <a href="{{url_for('show_index')}}" style="position:absolute;top:0;left:0;font-size:30px;">Insta485</a>
+        <br>
+        <hr>
+        <!-- DO NOT CHANGE THIS (aside from styling) -->
+        <form action="{{url_for('show_login')}}" method="post" enctype="multipart/form-data">
+            <input type="text" name="username" placeholder="username"/> <br />
+            <br>
+            <input type="password" name="password" placeholder="password"/> <br />
+            <br>
+            <input type="submit" value="login"/>
+        </form>
+        <a href = "{{url_for('show_create')}}">Don't have an account? <b>Sign up</b></a>
+    </body>
+</html>

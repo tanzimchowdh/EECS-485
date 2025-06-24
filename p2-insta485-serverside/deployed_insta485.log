@@ -1,0 +1,21 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 3.15.3.94...
+* TCP_NODELAY set
+* Connected to ec2-3-15-3-94.us-east-2.compute.amazonaws.com (3.15.3.94) port 80 (#0)
+> GET /accounts/login/ HTTP/1.1
+> Host: ec2-3-15-3-94.us-east-2.compute.amazonaws.com
+> User-Agent: curl/7.64.1
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Server: nginx/1.18.0 (Ubuntu)
+< Date: Mon, 28 Sep 2020 02:19:38 GMT
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 655
+< Connection: keep-alive
+< 
+{ [655 bytes data]
+100   655  100   655    0     0   9776      0 --:--:-- --:--:-- --:--:--  9776
+* Connection #0 to host ec2-3-15-3-94.us-east-2.compute.amazonaws.com left intact
+* Closing connection 0

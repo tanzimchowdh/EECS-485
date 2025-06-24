@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>insta485</title>
+</head>
+<body>
+    <a href="{{url_for('show_index')}}" style="position:absolute;top:0;left:0;font-size:30px;">Insta485</a>
+    <div style="position:absolute;top:0;right:0">
+        <a href="{{url_for('show_explore')}}" style="font-size:30px;">Explore |</a>
+        <a href="{{url_for('show_user', user_url_slug=logname)}}" style="font-size:30px;"> {{logname}}</a>
+    </div>
+    <br>
+    <hr>
+    <h1>Discover People</h1>
+    {% for user in not_following -%}
+    <table style="border-style:solid;width:1000px;margin:auto">
+        <tr>
+            <td style="width:50%">
+                <img src="{{url_for('show_image', filename=user["filename"])}}" width="50" alt="{{user["username"]}} pic">
+                <a href="{{url_for('show_user', user_url_slug=user["username"])}}">{{user["username"]}}</a>
+            </td>
+            <td style="text-align:right;width:50%">
+                <form action="{{url_for('show_explore')}}" method="post" enctype="multipart/form-data">
+                    <input type="submit" name="follow" value="follow"/>
+                    <input type="hidden" name="username" value="{{user["username"]}}"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br>
+    {% endfor %}
+</body>
+</html>

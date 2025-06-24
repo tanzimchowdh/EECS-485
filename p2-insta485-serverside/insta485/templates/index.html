@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>insta485</title>
+</head>
+<body>
+    <a href="{{url_for('show_index')}}" style="position:absolute;top:0;left:0;font-size:30px;">Insta485</a>
+    <div style="position:absolute;top:0;right:0">
+        <a href="{{url_for('show_explore')}}" style="font-size:30px">Explore |</a>
+        <a href="{{url_for('show_user', user_url_slug=logname)}}" style="font-size:30px"> {{logname}}</a>
+    </div>
+    <br>
+    <hr>   
+    {% for post in posts -%}
+    <div style="border-style:solid;width:600px;margin:auto">
+        <div style=text-align:left>
+            <a href="{{url_for('show_user', user_url_slug=post['owner'])}}"><img src="{{url_for('show_image', filename=post["owner_img_url"])}}" width="50" alt="{{post["owner"]}} pic">{{post["owner"]}}</a>
+            <span>
+                <a href="{{url_for('show_post', postid_url_slug=post['postid'])}}" style=float:right>{{post["created"]}}</a>
+            </span>
+        </div>
+        <img src="{{url_for('show_image', filename=post["filename"])}}" width="600" alt="post picture">
+        <p>{{post["likes"]}} {% if post["likes"] == 1 %}like{% else %}likes{% endif %}</p>
+        {% for comment in post["comments"] -%}
+        <p><a href="{{url_for('show_user', user_url_slug=comment["owner"])}}">{{comment["owner"]}}</a> {{comment["text"]}}</p>
+        {% endfor %}
+        {%if not post["logname_likes_post"] %}
+          <form action="{{url_for('show_index')}}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="postid" value="{{post["postid"]}}"/>
+            <input type="submit" name="like" value="like"/>
+          </form>
+        {% else %}
+          <form action="{{url_for('show_index')}}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="postid" value="{{post["postid"]}}"/>
+            <input type="submit" name="unlike" value="unlike"/>
+          </form>
+        {% endif %}
+        <form action="{{url_for('show_index')}}" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="postid" value="{{post["postid"]}}"/>
+          <input type="text" name="text"/>
+          <input type="submit" name="comment" value="comment"/>
+        </form>
+    </div>
+    <br>
+    {% endfor %}
+</body>
+</html>
