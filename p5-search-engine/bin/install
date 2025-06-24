@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# install
+
+# Stop on errors, print commands
+# See https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -Eeuo pipefail
+set -x
+
+python3 -m venv env
+
+set +u
+source env/bin/activate
+set -u
+
+mkdir -p tmp
+export TMPDIR=tmp
+
+pip install -r index/requirements.txt
+pip install -e index
+pip install -r search/requirements.txt
+pip install -e search
+
+pushd $VIRTUAL_ENV/bin
+ln -sf ../../tests/utils/hadoop.py hadoop
+popd
