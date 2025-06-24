@@ -1,0 +1,22 @@
+//FAILED tests/test_index.py::test_new_comment - assert []
+//FAILED tests/test_index.py::test_double_click_like - assert []
+FAILED tests/test_index.py::test_html - subprocess.CalledProcessError: Command '['html5validator', '--ignore=JAVA_TOOL_OPTIONS', 'tmp/index...
+//FAILED tests/test_scroll.py::test_infinite_scroll - assert 500 == 200
+//FAILED tests/test_scroll.py::test_infinite_scroll_many - assert 500 == 200
+//FAILED tests/test_scroll.py::test_scroll_refresh - assert 500 == 200
+//FAILED tests/test_slow_server_index.py::test_new_comment - assert []
+//FAILED tests/test_style.py::test_pycodestyle - subprocess.CalledProcessError: Command '['pycodestyle', 'setup.py', 'insta485']' returned no...
+FAILED tests/test_style.py::test_pydocstyle - subprocess.CalledProcessError: Command '['pydocstyle', 'setup.py', 'insta485']' returned non-...
+FAILED tests/test_style.py::test_pylint - subprocess.CalledProcessError: Command '['pylint', '--rcfile', PosixPath('/Users/tanzimchowdhury/...
+FAILED tests/test_style.py::test_eslint - subprocess.CalledProcessError: Command '['npx', 'eslint', '--ext', 'js,jsx', '--no-inline-config'...
+//ERROR tests/test_index.py::test_login - AssertionError: Errors in browser console:
+//ERROR tests/test_index.py::test_feed_load - AssertionError: Errors in browser console:
+ERROR tests/test_index.py::test_new_comment - AssertionError: Errors in browser console:
+ERROR tests/test_index.py::test_like_unlike - AssertionError: Errors in browser console:
+ERROR tests/test_index.py::test_double_click_like - AssertionError: Errors in browser console:
+ERROR tests/test_index.py::test_refresh - AssertionError: Errors in browser console:
+ERROR tests/test_index.py::test_html - AssertionError: Errors in browser console:
+ERROR tests/test_slow_server_index.py::test_feed_load - AssertionError: Errors in browser console:
+ERROR tests/test_slow_server_index.py::test_new_comment - AssertionError: Errors in browser console:
+ERROR tests/test_slow_server_index.py::test_like_unlike - AssertionError: Errors in browser console:
+ERROR tests/test_slow_server_index.py::test_refresh - AssertionError: Errors in browser console:

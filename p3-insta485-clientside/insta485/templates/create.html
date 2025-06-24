@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>insta485</title>
+</head>
+    <body>
+        <a href="{{url_for('show_index')}}" style="position:absolute;top:0;left:0;font-size:30px;">Insta485</a>
+        <br>
+        <hr>
+        <!-- DO NOT CHANGE THIS (aside from styling) -->
+        <table>
+          <tr>
+            <td>
+              Photo </br>
+              Name </br>
+              Username </br>
+              Email </br>
+              Password </br>
+            </td>
+            <td>
+            </br>
+              <form action="{{url_for('show_create')}}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file"> <br />
+                <input type="text" name="fullname"/> <br />
+                <input type="text" name="username"/> <br />
+                <input type="text" name="email"/> <br />
+                <input type="password" name="password"/> <br />
+                <input type="submit" name="signup" value="sign up"/>
+            </form>
+            </td>
+          </tr>
+        </table>
+        <a href="{{url_for('show_login')}}">Have an account?<b> Login</b></a>
+    </body>
+</html>

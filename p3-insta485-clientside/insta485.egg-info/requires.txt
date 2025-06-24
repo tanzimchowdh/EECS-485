@@ -1,0 +1,11 @@
+arrow
+bs4
+Flask
+html5validator
+nodeenv
+pycodestyle
+pydocstyle
+pylint
+pytest
+requests
+selenium

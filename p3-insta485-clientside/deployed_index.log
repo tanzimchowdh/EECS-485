@@ -1,0 +1,22 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 18.216.163.204...
+* TCP_NODELAY set
+* Connected to ec2-18-216-163-204.us-east-2.compute.amazonaws.com (18.216.163.204) port 80 (#0)
+> GET / HTTP/1.1
+> Host: ec2-18-216-163-204.us-east-2.compute.amazonaws.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+> Cookie: login=eyJ1c2VyX2lkIjoiYXdkZW9yaW8ifQ.X4dtHA.KBmXZB1Sh-cTpCvt06AYHrMyOOU
+> 
+< HTTP/1.1 200 OK
+< Server: nginx/1.18.0 (Ubuntu)
+< Date: Wed, 14 Oct 2020 21:27:26 GMT
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 602
+< Connection: keep-alive
+< Vary: Cookie
+< 
+{ [602 bytes data]
+100   602  100   602    0     0   2787      0 --:--:-- --:--:-- --:--:--  2787100   602  100   602    0     0   2165      0 --:--:-- --:--:-- --:--:--  2157
+* Connection #0 to host ec2-18-216-163-204.us-east-2.compute.amazonaws.com left intact

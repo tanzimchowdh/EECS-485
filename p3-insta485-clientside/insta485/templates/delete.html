@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>insta485</title>
+</head>
+<body>
+    <a href="/" style="position:absolute;top:0;left:0;font-size:30px;">Insta485</a>
+    <div style="position:absolute;top:0;right:0">
+        <a href="{{url_for('show_explore')}}" style="font-size:30px;">Explore |</a>
+        <a href="{{url_for('show_user', user_url_slug=logname)}}" style="font-size:30px;"> {{logname}}</a>
+    </div>
+    <br>
+    <hr>
+    <div>
+        <p>
+            {{logname}}
+        </p>
+        <form action="{{url_for('show_delete')}}" method="post" enctype="multipart/form-data">
+            <input type="submit" name="delete" value="confirm delete account"/>
+        </form>
+    </div>
+</body>

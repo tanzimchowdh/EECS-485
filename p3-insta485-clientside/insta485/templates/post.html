@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>insta485</title>
+</head>
+<body>
+    <a href="{{url_for('show_index')}}" style="position:absolute;top:0;left:0;font-size:30px;">Insta485</a>
+    <div style="position:absolute;top:0;right:0">
+        <a href="{{url_for('show_explore')}}" style="font-size:30px;">Explore |</a>
+        <a href="{{url_for('show_user', user_url_slug=logname)}}" style="font-size:30px;"> {{logname}}</a>
+    </div>
+    <br>
+    <hr>
+    <div style="border-style:solid;width:1000px;margin:auto">
+        <img src="{{url_for('show_image', filename=img_url)}}" width="500" alt="{{owner}} post">
+        <table style="float:right;width:49%">
+            <tr>
+                <td>
+                    <a href="{{url_for('show_user', user_url_slug=owner)}}"><img src="{{url_for('show_image', filename=owner_img_url)}}" width="30" alt="{{owner}} pic">{{owner}}</a>
+                    <span style="float:right">
+                        <a href="{{url_for('show_post', postid_url_slug=postid)}}" style=float:right>{{timestamp}}</a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br>
+                    {{likes}} {% if likes == 1 %}like{% else %}likes{% endif %}
+                    <br>
+                    {% for comment in comments -%}
+                    <a href="{{url_for('show_user', user_url_slug=comment['owner'])}}">{{comment["owner"]}}</a> {{comment["text"]}}
+                    <br>
+                    {% if comment["owner"] == logname -%}
+                    <form action="{{url_for('show_post', postid_url_slug=postid)}}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="commentid" value="{{comment['commentid']}}"/>
+                        <input type="submit" name="uncomment" value="delete"/>
+                    </form>
+                    {% endif -%}
+                    {% endfor %}
+                    {% if logname_likes_post %}
+                    <form action="{{url_for('show_post', postid_url_slug=postid)}}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="postid" value="{{postid}}"/>
+                        <input type="submit" name="unlike" value="unlike"/>
+                    </form>
+                    {% else %}
+                    <form action="{{url_for('show_post', postid_url_slug=postid)}}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="postid" value="{{postid}}"/>
+                        <input type="submit" name="like" value="like"/>
+                    </form>
+                    {% endif %}
+                    <form action="{{url_for('show_post', postid_url_slug=postid)}}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="postid" value="{{postid}}"/>
+                        <input type="text" name="text"/>
+                        <input type="submit" name="comment" value="comment"/>
+                    </form>
+                    {% if logname == owner %}
+                    <form action="{{url_for('show_post', postid_url_slug=postid)}}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="postid" value="{{postid}}"/>
+                        <input type="submit" name="delete" value="delete this post"/>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
